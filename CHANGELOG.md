@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- dockerfile docker-entrypoint.sh application.yml
+- dockerfile 
+- docker-entrypoint.sh 
+- application.yml
 
  
