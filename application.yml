@@ -1,7 +1,2 @@
-server:
-    port: ${serverPort:8443}
-    ssl:
-        key-store: ${keystoreLocation}
-        key-store-password: ${keystorePassword}
-        key-password: ${keystorePassword}
-        key-alias: ${keystoreSSLKey:tomcat}
+keystoreLocation : ${keystoreLocation}
+keystorePassword: ${keystorePassword}
