@@ -4,8 +4,8 @@ language: ruby
 
 env:
   global:
-    - DOCKER_COMPOSE_VERSION="1.21.1"
-    - DOCKER_IMAGE="mlr-interface-service"
+    - DOCKER_COMPOSE_VERSION=1.21.1
+    - DOCKER_IMAGE=mlr-interface-service
 
 services:
   - docker
