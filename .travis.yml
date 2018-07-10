@@ -38,7 +38,6 @@ install:
 
 script:
   - docker ps | grep -q "${DOCKER_IMAGE}"
-  - docker ps
   - cd docker-bench-security
   - sudo sh docker-bench-security.sh -c container_images
   - docker run -d --name db arminc/clair-db
