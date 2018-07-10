@@ -37,6 +37,7 @@ install:
   - docker-compose -f docker-compose.yml up -d --build
 
 script:
+  - docker ps -a
   - cd docker-bench-security
   - sudo sh docker-bench-security.sh -c container_images
   - docker ps | grep -q $DOCKER_IMAGE
