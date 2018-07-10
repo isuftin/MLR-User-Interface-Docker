@@ -1,0 +1,26 @@
+---
+  version: '3.5'
+
+  secrets:
+    tomcat_ssl_crt:
+      file: ./config/certificates/tomcat/tomcat-wildcard-dev.crt
+    tomcat_ssl_key:
+      file: ./config/certificates/tomcat/tomcat-wildcard-dev.key
+    water_auth_secret:
+      file: ./config/oauthClientSecret.txt
+
+  services:
+    mlr-user-interface:
+      build: .
+      image: mlr-user-interface-service
+      ports:
+        - "443:443"
+      secrets:
+        - source: tomcat_ssl_crt
+          target: /tomcat-wildcard-ssl.crt
+        - source: tomcat_ssl_key
+          target: /tomcat-wildcard-ssl.key
+        - source: water_auth_secret
+          target: /oauthClientSecret.txt
+      env_file:
+        - docker-compose.env
