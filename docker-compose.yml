@@ -10,9 +10,9 @@
       file: ./config/oauthClientSecret.txt
 
   services:
-    mlr-user-interface:
+    mlr-interface:
       build: .
-      image: mlr-user-interface-service
+      image: mlr-interface-service
       ports:
         - "443:443"
       secrets:
