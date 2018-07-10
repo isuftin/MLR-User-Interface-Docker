@@ -1,10 +1,21 @@
-FROM openjdk:8-jdk-alpine
-RUN set -x & apk update && apk upgrade && apk add --no-cache curl && apk --no-cache add openssl
-ARG mlr_version
+FROM cidasdpdasartip.cr.usgs.gov:8447/aqcu/aqcu-base:latest
 
-ADD docker-entrypoint.sh entrypoint.sh
-RUN ["chmod", "+x", "entrypoint.sh"]
+ENV repo_name=mlr-maven-centralized
+ENV artifact_id=mlrInterface
+ENV artifact_version=0.2-SNAPSHOT
+RUN ./pull-from-artifactory.sh ${repo_name} gov.usgs.wma ${artifact_id} ${artifact_version} app.jar
 
-RUN  curl -k -X GET "https://cida.usgs.gov/artifactory/mlr-maven-centralized/gov/usgs/wma/mlrInterface/$mlr_version/mlrInterface-$mlr_version.war" > app.war
-EXPOSE 8443
-ENTRYPOINT [ "/entrypoint.sh" ]
+ADD launch-app.sh launch-app.sh
+RUN ["chmod", "+x", "launch-app.sh"]
+
+#Default ENV Values
+ENV serverPort=443
+ENV oauthClientId=client-id
+ENV oauthClientAccessTokenUri=https://example.gov/oauth/token
+ENV oauthClientAuthorizationUri=https://example.gov/oauth/authorize
+ENV oauthResourceTokenKeyUri=https://example.gov/oauth/token_key
+ENV oauthResourceId=resource-id
+
+ENV OAUTH_CLIENT_SECRET_PATH=/oauthClientSecret.txt
+
+ENV HEALTHY_RESPONSE_CONTAINS='{"status":"UP"}'
