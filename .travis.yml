@@ -27,8 +27,8 @@ before_install:
   - docker tag localhost:8443/aqcu/aqcu-base:latest cidasdpdasartip.cr.usgs.gov:8447/aqcu/aqcu-base:latest
 
 install:
-  - docker build -t mlrinterface .
+  - docker build -t mlr-interface-service .
   - docker-compose -f docker-compose.yml up -d --build
 
 script:
-  - docker ps | grep -q mlrinterface
+  - docker ps | grep -q mlr-interface-service
