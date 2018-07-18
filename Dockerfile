@@ -16,6 +16,12 @@ ENV oauthClientAuthorizationUri=https://example.gov/oauth/authorize
 ENV oauthResourceTokenKeyUri=https://example.gov/oauth/token_key
 ENV oauthResourceId=resource-id
 
+ENV MLR_GATEWAY_HOST=https://localhost
+ENV MLR_GATEWAY_PORT=6026
+ENV MLR_GATEWAY_UPLOAD_PATH=/workflows/ddots
+ENV MLR_GATEWAY_VALIDATE_PATH=/workflows/ddots/validate
+ENV keystoreLocation=/localkeystore
+
 ENV OAUTH_CLIENT_SECRET_PATH=/oauthClientSecret.txt
 
 ENV HEALTHY_RESPONSE_CONTAINS='{"status":"UP"}'
