@@ -3,7 +3,7 @@ FROM cidasdpdasartip.cr.usgs.gov:8447/wma/wma-spring-boot-base:latest
 ENV repo_name=mlr-maven-centralized
 ENV artifact_id=mlrInterface
 ENV artifact_version=0.2-SNAPSHOT
-ENV serverPort=8443
+ENV serverPort=8444
 ENV oauthClientId=client-id
 ENV oauthClientAccessTokenUri=https://example.gov/oauth/token
 ENV oauthClientAuthorizationUri=https://example.gov/oauth/authorize

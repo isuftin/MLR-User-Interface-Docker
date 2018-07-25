@@ -12,7 +12,7 @@
       build: .
       image: mlr-interface-service
       ports:
-        - "8443:8443"
+        - "8444:8444"
       secrets:
       - source: tomcat_ssl_crt
         target: /home/spring/tomcat-wildcard-ssl.crt
